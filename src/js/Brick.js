@@ -2,7 +2,7 @@ export default class Brick{
     constructor(game) {
         this.game = game;
         this.position = {
-            x:  Math.floor(Math.random() * this.game.canvas.width ),
+            x:Math.floor(Math.random() * this.game.canvas.width ),
             y:Math.floor(Math.random() * 200)
 
         }

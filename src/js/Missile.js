@@ -8,7 +8,7 @@ export default class Missile{
         this.speed = 2;
     }
     update(){
-
+        this.collision()
         this.draw();
         this.y -= this.speed;
 
@@ -22,5 +22,32 @@ export default class Missile{
 
 
         this.game.ctx.closePath();
+    }
+    collision(){
+        this.colisionHaut();
+        this.colisionBrick();
+    }
+    colisionHaut(){
+        if (this.y + this.height < 0){
+            this.game.missiles.shift();
+        }
+    }
+    colisionBrick() {
+        this.game.bricks.forEach(brick =>{
+
+            if (this.y <= brick.position.y + brick.height
+                && this.y >= brick.position.y
+                &&  this.x <= brick.position.x + brick.width
+                && this.x >= brick.position.x
+            ) {
+
+                delete brick.position.x;
+                delete brick.position.y;
+                delete this.x;
+                delete this.y;
+
+            }
+        })
+
     }
 }

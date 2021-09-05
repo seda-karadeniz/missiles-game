@@ -16,7 +16,11 @@ const game = {
         ship.init(this);
         for (let i = 0; i < this.brickCount; i++ ){
             this.bricks.push(new Brick(this));
+
         }
+
+
+
 
 
         this.animate();
@@ -32,6 +36,7 @@ const game = {
         })
         this.missiles.forEach(missile=>{
             missile.update();
+
         })
 
     },
